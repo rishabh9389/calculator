@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 500px;
+            width: 1300px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://cdn.pixabay.com/photo/2015/10/01/19/05/car-967470_1280.png" alt="">
+    <button onclick="changeImg()">next</button>
+    <script>
+        let img =document.querySelector("img")
+        let images = ["http://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386506.jpg", "https://tse2.mm.bing.net/th?id=OIP.aN8e4aMLnf0iDQfVAuivXgHaEK&pid=Api&P=0&h=180","https://wallpapercave.com/wp/BVrgfds.jpg","https://tse2.mm.bing.net/th?id=OIP._3tky5k8yZds2RNX0p8oFgHaEo&pid=Api&P=0&h=180"]
+        let currentImg = 0;
+        function changeImg(){
+            if(images.length>0){
+                img.src = images[currentImg % images.length]
+            }
+            currentImg++;
+        }
+</script>
+</body>
+</html>
