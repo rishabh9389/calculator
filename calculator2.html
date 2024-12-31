@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: azure;
+    }
+
+    .Calc {
+        background-color: rgba(121, 0, 0, 0.049);
+        width: 194px;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    input {
+        width: 185px;
+        height: 70px;
+        background-color: black;
+        color: white;
+        font-size: 2rem;
+        text-align: right;
+        border-radius: 5px;
+    }
+
+    button {
+        height: 26px;
+        width: 39px;
+        margin: 3px;
+        color: black;
+        border-radius: 5px;
+    }
+
+    .btn {
+        background-color: blue;
+    }
+</style>
+
+<body>
+    <div class="Calc">
+        <input type="text" id="output">
+        <div class="container">
+            <div class="">
+                <button onclick="f1(this.value)" value="1">1</button>
+                <button onclick="f1(this.value)" value="2">2</button>
+                <button onclick="f1(this.value)" value="3">3</button>
+                <button  onclick="first(this.value)" value="-"class="btn">-</button>
+            </div>
+            <div class="">
+                <button onclick="f1(this.value)" value="4">4</button>
+                <button onclick="f1(this.value)" value="5">5</button>
+                <button onclick="f1(this.value)" value="6">6</button>
+                <button onclick="first(this.value)" value="+" class="btn">+</button>
+            </div>
+            <div class="">
+                <button onclick="f1(this.value)" value="7">7</button>
+                <button onclick="f1(this.value)" value="8">8</button>
+                <button onclick="f1(this.value)" value="9">9</button>
+                <button onclick="first(this.value)" value="X" class="btn">X</button>
+            </div>
+            <div class="">
+                <button onclick="f1(this.value)" value="0" class="btn">0</button>
+                <button onclick="first(this.value)" value="/" class="btn">/</button>
+                <button onclick="f1(this.value)" value="." class="btn">.</button>
+                <button onclick="result()" class="btn">=</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let out = document.querySelector("#output")
+        let a, b, opr, res;
+
+        function f1(x) {
+            out.value += x
+            console.log(x)
+        }
+        function first(op) {
+            a = parseFloat(out.value);
+            out.value = ""
+            opr = op
+        }
+
+        function result() {
+            b = parseFloat(out.value)
+            res = 0;
+
+            // switch (opr) {
+            //     case '+':
+            //         res = a + b;
+            //         break;
+            //     case '-':
+            //         res = a - b;
+            //         break;
+            //     case 'X':
+            //         res = a * b;
+            //         break;
+            //     case '/':
+            //         res = a / b;
+            //         break;
+            // }
+            if(opr=="+"){
+                res = a + b;
+                
+            }
+            if (opr=="-"){
+                res = a - b; 
+            }
+            if (opr=="X"){
+                res = a * b;
+            }
+            if (opr=="/"){
+                res = a / b;
+            }
+            out.value = res
+        }
+    </script>
+</body>
+
+</html>
